@@ -3,7 +3,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 //=============== helper import =================
-import { readData } from "./helper.js";
+import { readData, writeData, resetData } from "./helper.js";
 
 //================================================
 
@@ -27,17 +27,23 @@ server.get("/api/v1/status", (request, response) => {
 		.catch((err) => console.log(err));
 });
 
-// GET handler : current balance
-server.get("/api/v1/money", (request, response) => {});
-
-// GET handler : current capacity
-server.get("/api/v1/capacity", (request, response) => {});
-
-// POST handler : x amount of sold resources
-server.post("/api/v1/sell", (request, response) => {});
+// POST handler :
+server.post("/api/v1/sell", (request, response) => {
+	const data = request.body;
+	console.log("sell", data);
+	resetData(data)
+		.then((info) => response.json(info))
+		.catch((err) => console.log(err, "Could not sell"));
+});
 
 // POST handler : adding resources
-server.post("/api/v1/humans", (request, response) => {});
+server.post("/api/v1/resources", (request, response) => {
+	const data = request.body;
+	console.log("resources", data);
+	writeData(data)
+		.then((status) => response.json(status))
+		.catch((err) => console.log(err, "Could not update data"));
+});
 
 //================ start server ==================
 server.listen(PORT, () => {

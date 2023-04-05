@@ -1,6 +1,22 @@
-[
-	{
-		"balance": 150000,
-		"capacity": 55
-	}
-]
+{
+  "status": {
+    "balance": 15000,
+    "max-capacity": 100,
+    "resource-value": 50,
+    "current-harvest": [
+      {
+        "resources": "1",
+        "id": 0,
+        "time": "2023-04-05T12:41:41.153Z"
+      },
+      {
+        "resources": "5",
+        "id": 1,
+        "time": "2023-04-05T12:41:42.303Z"
+      }
+    ],
+    "capacity": 6,
+    "revenue": 300
+  },
+  "sales": []
+}
