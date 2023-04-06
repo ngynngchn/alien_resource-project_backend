@@ -3,7 +3,6 @@ import fs from "fs/promises";
 export async function readData() {
 	try {
 		const data = await fs.readFile("./database.json", "utf-8");
-		console.log("a", data);
 		return JSON.parse(data);
 	} catch (err) {
 		throw new Error("Error reading database", err.message);
