@@ -16,8 +16,8 @@ const PORT = process.env.PORT || 8889;
 server.use(express.json());
 // logger
 server.use(morgan("dev"));
-// cross origin enabling with http://localhost:5173
-server.use(cors({ origin: "http://localhost:5173" }));
+// cross origin enabling with frontend
+server.use(cors({ origin: process.env.VITE_FRONTEND }));
 
 // routing
 
